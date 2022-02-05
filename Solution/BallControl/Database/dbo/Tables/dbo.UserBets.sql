@@ -7,5 +7,5 @@
 	[CreatedDateUtc] [datetime2](2) NOT NULL,
 	CONSTRAINT [PK_UserBets] PRIMARY KEY CLUSTERED ([Id] ASC),
 	CONSTRAINT [FK_UserBets_Predictions] FOREIGN KEY([PredictionId]) REFERENCES [dbo].[Predictions] ([Id]),
-	CONSTRAINT [FK_UserBets_Users] FOREIGN KEY([UserId]) REFERENCES [dbo].[Users] ([UserId])
+	CONSTRAINT [FK_UserBets_Users] FOREIGN KEY([UserId]) REFERENCES [dbo].[Users] ([Id])
 )

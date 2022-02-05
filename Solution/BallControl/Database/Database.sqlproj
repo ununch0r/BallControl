@@ -56,21 +56,25 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
-    <Folder Include="Tables" />
-    <Folder Include="StoredProcedures" />
+    <Folder Include="dbo" />
+    <Folder Include="dbo\StoredProcedures" />
+    <Folder Include="dbo\Tables" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="Tables\dbo.Roles.sql" />
-    <Build Include="Tables\dbo.Countries.sql" />
-    <Build Include="Tables\dbo.StatisticTypes.sql" />
-    <Build Include="Tables\dbo.PredictionStatuses.sql" />
-    <Build Include="Tables\dbo.Competitions.sql" />
-    <Build Include="Tables\dbo.Fixtures.sql" />
-    <Build Include="Tables\dbo.Predictions.sql" />
-    <Build Include="Tables\dbo.PredictionPrerequisites.sql" />
-    <Build Include="Tables\dbo.Users.sql" />
-    <Build Include="Tables\dbo.UserSavedPredictions.sql" />
-    <Build Include="Tables\dbo.UserBets.sql" />
-    <Build Include="Tables\dbo.UserRoles.sql" />
+    <Build Include="dbo\Tables\dbo.Competitions.sql" />
+    <Build Include="dbo\Tables\dbo.Countries.sql" />
+    <Build Include="dbo\Tables\dbo.Fixtures.sql" />
+    <Build Include="dbo\Tables\dbo.PredictionPrerequisites.sql" />
+    <Build Include="dbo\Tables\dbo.Predictions.sql" />
+    <Build Include="dbo\Tables\dbo.PredictionStatuses.sql" />
+    <Build Include="dbo\Tables\dbo.Roles.sql" />
+    <Build Include="dbo\Tables\dbo.StatisticTypes.sql" />
+    <Build Include="dbo\Tables\dbo.UserBets.sql" />
+    <Build Include="dbo\Tables\dbo.UserRoles.sql" />
+    <Build Include="dbo\Tables\dbo.Users.sql" />
+    <Build Include="dbo\Tables\dbo.UserSavedPredictions.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="BallControl.publish.xml" />
   </ItemGroup>
 </Project>
