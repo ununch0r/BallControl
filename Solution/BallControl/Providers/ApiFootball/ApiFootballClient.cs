@@ -7,12 +7,12 @@ namespace Providers.ApiFootball
     {
         public readonly RestClient Client;
 
-        public ApiFootballClient()
+        public ApiFootballClient(string host, string key)
         {
             var headers = new Dictionary<string, string>
             {
-                {"x-rapidapi-host", "api-football-v1.p.rapidapi.com"},
-                {"x-rapidapi-key", "ce54e36d64msh605fbf99d93fd76p148c19jsnf59cd9c166d8"}
+                {"x-rapidapi-host", host},
+                {"x-rapidapi-key", key}
             };
 
             Client = new RestClient("https://api-football-v1.p.rapidapi.com/v3")

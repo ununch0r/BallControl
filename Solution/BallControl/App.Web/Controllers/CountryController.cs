@@ -1,4 +1,5 @@
-﻿using Core.Managers;
+﻿using System.Threading.Tasks;
+using Core.Managers;
 using Core.Providers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
@@ -29,9 +30,9 @@ namespace App.Web.Controllers
 
         [HttpGet]
         [Route("leagues")]
-        public IActionResult GetLeagues()
+        public async Task<IActionResult> GetLeaguesAsync()
         {
-            var competitions = _competitionProvider.GetCompetitionsByCountryCode("it");
+            var competitions = await _competitionProvider.GetCompetitionsByCountryCodeAsync("it");
             //add mapping to VM
             return Ok(competitions);
         }

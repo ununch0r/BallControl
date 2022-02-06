@@ -1,9 +1,11 @@
-﻿using System.Threading.Tasks;
+﻿using Core.Models.ApiFootball;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Core.Providers
 {
     public interface ICompetitionProvider
     {
-        Task<object> GetCompetitionsByCountryCode(string countryCode);
+        Task<IList<LeagueWrapperDto>> GetCompetitionsByCountryCodeAsync(string countryCode);
     }
 }
