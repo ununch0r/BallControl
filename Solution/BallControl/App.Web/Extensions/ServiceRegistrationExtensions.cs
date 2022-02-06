@@ -1,8 +1,11 @@
 ﻿using Business.Managers;
 using Core.Managers;
+using Core.Providers;
 using Core.Repositories;
 using DataAccess.Repositories;
 using Microsoft.Extensions.DependencyInjection;
+using Providers.ApiFootball;
+using Providers.ApiFootball.Providers;
 
 namespace App.Web.Extensions
 {
@@ -13,6 +16,9 @@ namespace App.Web.Extensions
             services.AddTransient<ICountryRepository, CountryRepository>();
 
             services.AddTransient<ICountryManager, CountryManager>();
+
+            services.AddTransient<ICompetitionProvider, CompetitionProvider>();
+            services.AddSingleton<ApiFootballClient>();
         }
     }
 }
