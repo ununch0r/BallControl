@@ -1,7 +1,10 @@
+using App.Web.Extensions;
+using DataAccess.Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -26,6 +29,15 @@ namespace App.Web
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+
+            services.AddHttpContextAccessor();
+
+            services.AddDbContext<BallControlContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultDatabase")));
+
+            services.AddServices();
+
+            services.AddSwagger();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,6 +53,14 @@ namespace App.Web
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "VLPI API V1");
+                c.RoutePrefix = "swagger/ui";
+            });
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
