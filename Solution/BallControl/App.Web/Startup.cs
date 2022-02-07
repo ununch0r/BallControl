@@ -60,7 +60,7 @@ namespace App.Web
 
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "VLPI API V1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "BallControl API V1");
                 c.RoutePrefix = "swagger/ui";
             });
 

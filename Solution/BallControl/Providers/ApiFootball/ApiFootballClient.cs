@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using Providers.ApiFootball.Models;
 using RestSharp;
 
 namespace Providers.ApiFootball
@@ -17,6 +19,11 @@ namespace Providers.ApiFootball
 
             Client = new RestClient("https://api-football-v1.p.rapidapi.com/v3")
                 .AddDefaultHeaders(headers);
+        }
+
+        public async Task<T> GetAsync<T>(RestRequest request) where T : class
+        {
+            return (await Client.GetAsync<GenericResponseModel<T>>(request))?.Response;
         }
     }
 }
