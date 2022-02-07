@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Core.Models.ApiFootball
+﻿namespace Core.Models.ApiFootball
 {
-    public class LeagueDto
+    public class LeagueModel
     {
         public int Id { get; set; }
         public string Name { get; set; }

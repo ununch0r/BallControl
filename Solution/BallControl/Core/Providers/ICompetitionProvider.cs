@@ -6,6 +6,6 @@ namespace Core.Providers
 {
     public interface ICompetitionProvider
     {
-        Task<IList<LeagueWrapperDto>> GetCompetitionsByCountryCodeAsync(string countryCode);
+        Task<IList<LeagueWrapperModel>> GetCompetitionsByCountryCodeAsync(string countryCode);
     }
 }

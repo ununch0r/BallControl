@@ -17,8 +17,13 @@ namespace App.Web.Extensions
             services.AddTransient<ICountryRepository, CountryRepository>();
 
             services.AddTransient<ICountryManager, CountryManager>();
+            services.AddTransient<ICompetitionManager, CompetitionManager>();
 
             services.AddTransient<ICompetitionProvider, CompetitionProvider>();
+
+
+
+
             services.AddSingleton(new ApiFootballClient(
                 configuration["ApiFootball:Host"],
                 configuration["ApiFootball:Key"]

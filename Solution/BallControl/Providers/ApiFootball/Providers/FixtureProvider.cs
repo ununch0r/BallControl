@@ -8,19 +8,19 @@ using RestSharp;
 
 namespace Providers.ApiFootball.Providers
 {
-    public class CompetitionProvider : ICompetitionProvider
+    public class FixtureProvider : IFixtureProvider
     {
         private readonly ApiFootballClient _client;
-        private const string ApiPrefix = "leagues";
+        private const string ApiPrefix = "fixtures";
 
-        public CompetitionProvider(ApiFootballClient client)
+        public FixtureProvider(ApiFootballClient client)
         {
             _client = client;
         }
 
-        public async Task<IList<LeagueWrapperModel>> GetCompetitionsByCountryCodeAsync(string countryCode)
+        public async Task<IList<LeagueWrapperModel>> GetFixturesByDateAsync(string date)
         {
-            var request = new RestRequest(ApiPrefix).AddQueryParameter("code",countryCode);
+            var request = new RestRequest(ApiPrefix).AddQueryParameter("date", date);
             var response = await _client.GetAsync<IList<LeagueWrapperDto>>(request);
             return response.ToModels();
         }
